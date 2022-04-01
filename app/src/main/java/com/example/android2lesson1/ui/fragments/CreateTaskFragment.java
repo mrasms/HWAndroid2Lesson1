@@ -15,7 +15,8 @@ import com.example.android2lesson1.R;
 import com.example.android2lesson1.databinding.FragmentCreateTaskBinding;
 
 public class CreateTaskFragment extends Fragment {
-private FragmentCreateTaskBinding binding;
+    private FragmentCreateTaskBinding binding;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,7 +35,7 @@ private FragmentCreateTaskBinding binding;
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("key",binding.etToTask.getText().toString().trim());
+                bundle.putString("key", binding.etToTask.getText().toString().trim());
                 Navigation.findNavController(requireView()).navigate(R.id.taskFragment, bundle);
             }
         });
