@@ -36,10 +36,8 @@ public class OnBoardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initAdapter();
-        setupScrollContent();
         setupListeners();
-
-
+        setupScrollContent();
     }
 
 
@@ -55,10 +53,10 @@ public class OnBoardFragment extends Fragment {
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.pager.getCurrentItem() == list.size()-1) {
+                if (binding.pager.getCurrentItem() == list.size() - 1) {
                     Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
                 } else
-                binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1);
+                    binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1);
 
             }
         });
@@ -129,5 +127,11 @@ public class OnBoardFragment extends Fragment {
         list.add(new BoardModel(R.drawable.darts, "Достигай целей"));
         list.add(new BoardModel(R.drawable.earth, "Развивайся"));
         return list;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        list.clear();
     }
 }
