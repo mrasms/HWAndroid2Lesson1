@@ -121,7 +121,6 @@ public class OnBoardFragment extends Fragment {
         });
     }
 
-
     private ArrayList<BoardModel> getBoardList() {
         list.add(new BoardModel(R.drawable.watch, "Экономь время"));
         list.add(new BoardModel(R.drawable.darts, "Достигай целей"));
