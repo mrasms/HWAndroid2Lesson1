@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.view.LayoutInflater;
@@ -35,8 +36,8 @@ public class OnBoardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initAdapter();
-        setupListeners();
         setupScrollContent();
+        setupListeners();
 
 
     }
@@ -54,8 +55,11 @@ public class OnBoardFragment extends Fragment {
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (binding.pager.getCurrentItem() <= list.size())
-                    binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1);
+                if (binding.pager.getCurrentItem() == list.size()-1) {
+                    Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
+                } else
+                binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1);
+
             }
         });
 
