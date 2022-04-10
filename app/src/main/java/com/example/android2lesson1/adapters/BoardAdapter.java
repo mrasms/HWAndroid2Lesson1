@@ -1,4 +1,4 @@
-package com.example.android2lesson1.adapter;
+package com.example.android2lesson1.adapters;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -7,16 +7,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android2lesson1.ItemListener;
 import com.example.android2lesson1.databinding.ItemBoardBinding;
-import com.example.android2lesson1.model.BoardModel;
+import com.example.android2lesson1.models.BoardModel;
 
 import java.util.ArrayList;
 
 
 public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardViewHolder> {
     private ArrayList<BoardModel> list;
+    private ItemListener listener;
 
-    public BoardAdapter(ArrayList<BoardModel> list) {
+    public BoardAdapter(ArrayList<BoardModel> list, ItemListener listener) {
+        this.listener = listener;
         this.list = list;
     }
 
@@ -48,6 +51,14 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardViewHol
         public void onBind(BoardModel model) {
             binding.imBoard.setImageResource(model.getImage());
             binding.tvDescription.setText(model.getDescription());
+            binding.btnNext.setText(model.getBtnText());
+            binding.btnNext.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    listener.itemClick();
+
+                }
+            });
         }
     }
 }

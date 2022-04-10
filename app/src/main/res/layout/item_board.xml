@@ -27,5 +27,19 @@
         android:textSize="36sp"
         app:layout_constraintTop_toBottomOf="@id/im_board" />
 
+    <Button
+        android:id="@+id/btn_next"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/button_corners"
+        android:backgroundTint="@color/white"
+        android:textAllCaps="false"
+        android:textColor="#6C70D5"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_description" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

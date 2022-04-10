@@ -1,5 +1,10 @@
 package com.example.android2lesson1.ui.fragments;
 
+import static com.example.android2lesson1.keys.Keys.FILE_NAME;
+import static com.example.android2lesson1.keys.Keys.IS_SHOW_KEY;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,17 +17,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.android2lesson1.ItemListener;
 import com.example.android2lesson1.R;
-import com.example.android2lesson1.adapter.BoardAdapter;
+import com.example.android2lesson1.adapters.BoardAdapter;
 import com.example.android2lesson1.databinding.FragmentOnBoardBinding;
-import com.example.android2lesson1.model.BoardModel;
+import com.example.android2lesson1.keys.Keys;
+import com.example.android2lesson1.models.BoardModel;
 
 import java.util.ArrayList;
 
 
-public class OnBoardFragment extends Fragment {
+public class OnBoardFragment extends Fragment implements ItemListener {
     private FragmentOnBoardBinding binding;
-    ArrayList<BoardModel> list = new ArrayList<>();
+    private ArrayList<BoardModel> list = new ArrayList<>();
+    private SharedPreferences preferences;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,31 +44,32 @@ public class OnBoardFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        checkOnShowBoard();
         initAdapter();
         setupListeners();
         setupScrollContent();
+
+    }
+
+    private void checkOnShowBoard() {
+        preferences = requireActivity().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+
+        if (preferences != null) {
+            boolean isShow = preferences.getBoolean(IS_SHOW_KEY, false);
+            if (isShow) {
+                Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
+            }
+        }
     }
 
 
     private void initAdapter() {
-        BoardAdapter adapter = new BoardAdapter(getBoardList());
+        BoardAdapter adapter = new BoardAdapter(getBoardList(), this);
         binding.pager.setAdapter(adapter);
     }
 
 
     private void setupListeners() {
-
-        // button listener
-        binding.btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (binding.pager.getCurrentItem() == list.size() - 1) {
-                    Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
-                } else
-                    binding.pager.setCurrentItem(binding.pager.getCurrentItem() + 1);
-
-            }
-        });
 
         // dotsListeners
         binding.imDot1.setOnClickListener(new View.OnClickListener() {
@@ -96,9 +106,9 @@ public class OnBoardFragment extends Fragment {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                if (position < list.size() - 1) {
+                /*if (position < list.size() - 1) {
                     binding.btnNext.setText("Дальше");
-                } else binding.btnNext.setText("Начинаем");
+                } else binding.btnNext.setText("Начинаем");*/
                 if (binding.pager.getCurrentItem() == position) {
                     for (int i = 0; i <= list.size(); i++) {
                         if (i == position && position == 0) {
@@ -122,9 +132,9 @@ public class OnBoardFragment extends Fragment {
     }
 
     private ArrayList<BoardModel> getBoardList() {
-        list.add(new BoardModel(R.drawable.watch, "Экономь время"));
-        list.add(new BoardModel(R.drawable.darts, "Достигай целей"));
-        list.add(new BoardModel(R.drawable.earth, "Развивайся"));
+        list.add(new BoardModel(R.drawable.watch, "Экономь время", "Дальше"));
+        list.add(new BoardModel(R.drawable.darts, "Достигай целей", "Дальше"));
+        list.add(new BoardModel(R.drawable.earth, "Развивайся", "Начинаем"));
         return list;
     }
 
@@ -132,5 +142,14 @@ public class OnBoardFragment extends Fragment {
     public void onStop() {
         super.onStop();
         list.clear();
+    }
+
+    @Override
+    public void itemClick() {
+        if (binding.pager.getCurrentItem() == 2) {
+            preferences = requireActivity().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
+            preferences.edit().putBoolean(IS_SHOW_KEY, true).apply();
+            Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
+        }else binding.pager.setCurrentItem(binding.pager.getCurrentItem()+1);
     }
 }
