@@ -3,9 +3,7 @@ package com.example.android2lesson1.ui;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
-
 import android.os.Bundle;
-
 import com.example.android2lesson1.R;
 
 public class MainActivity extends AppCompatActivity {
