@@ -5,7 +5,7 @@
     android:id="@+id/nav_graph.xml"
     app:startDestination="@id/onBoardFragment">
 
-    <fragment
+    <dialog
         android:id="@+id/createTaskFragment"
         android:name="com.example.android2lesson1.ui.fragments.CreateTaskFragment"
         android:label="fragment_create_task"
@@ -13,7 +13,7 @@
         <action
             android:id="@+id/action_createTaskFragment_to_taskFragment"
             app:destination="@id/taskFragment" />
-    </fragment>
+    </dialog>
     <fragment
         android:id="@+id/taskFragment"
         android:name="com.example.android2lesson1.ui.fragments.TaskFragment"
