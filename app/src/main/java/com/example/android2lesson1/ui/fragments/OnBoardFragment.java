@@ -17,11 +17,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.android2lesson1.ItemListener;
+import com.example.android2lesson1.interfaces.ItemListener;
 import com.example.android2lesson1.R;
 import com.example.android2lesson1.adapters.BoardAdapter;
 import com.example.android2lesson1.databinding.FragmentOnBoardBinding;
-import com.example.android2lesson1.keys.Keys;
 import com.example.android2lesson1.models.BoardModel;
 
 import java.util.ArrayList;

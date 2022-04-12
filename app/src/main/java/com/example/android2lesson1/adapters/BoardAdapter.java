@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android2lesson1.ItemListener;
+import com.example.android2lesson1.interfaces.ItemListener;
 import com.example.android2lesson1.databinding.ItemBoardBinding;
 import com.example.android2lesson1.models.BoardModel;
 

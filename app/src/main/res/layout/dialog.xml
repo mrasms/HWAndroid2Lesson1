@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <TextView
+        android:id="@+id/tv_line"
+        android:layout_width="187dp"
+        android:layout_height="wrap_content"
+        android:background="#6C70D5"
+        android:text="Регулярность"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <RadioGroup
+        android:id="@+id/radio_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tv_line">
+
+        <RadioButton
+            android:id="@+id/every_day_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:buttonTint="#6C70D5"
+            android:text="Каждый день"
+            android:textColor="#6C70D5"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/every_week_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:buttonTint="#6C70D5"
+            android:text="Каждую неделю"
+            android:textColor="#6C70D5"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/every_month_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:buttonTint="#6C70D5"
+            android:text="Каждый месяц"
+            android:textColor="#6C70D5"
+            android:textSize="20sp" />
+
+        <RadioButton
+            android:id="@+id/every_year_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:buttonTint="#6C70D5"
+            android:text="Каждый год"
+            android:textColor="#6C70D5"
+            android:textSize="20sp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/cancel_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Отменить"
+        android:textColor="#6C70D5"
+        android:textSize="20sp"
+        android:textStyle="normal"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/radio_group" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+

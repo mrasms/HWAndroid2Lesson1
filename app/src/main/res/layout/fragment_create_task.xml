@@ -27,6 +27,7 @@
         android:drawablePadding="13dp"
         android:paddingVertical="12dp"
         android:paddingStart="3dp"
+        android:paddingEnd="4dp"
         android:text="dd.mm.yyyy"
         android:textAlignment="center"
         android:textSize="14sp"

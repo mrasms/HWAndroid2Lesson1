@@ -4,18 +4,14 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
-import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-import androidx.navigation.ui.NavigationUI;
 
-import com.example.android2lesson1.ItemListener;
+import com.example.android2lesson1.interfaces.ItemListener;
 import com.example.android2lesson1.R;
 import com.example.android2lesson1.adapters.TaskAdapter;
 import com.example.android2lesson1.databinding.FragmentTaskBinding;
@@ -34,7 +30,6 @@ public class TaskFragment extends Fragment implements ItemListener {
                              Bundle savedInstanceState) {
         binding = FragmentTaskBinding.inflate(getLayoutInflater());
         return binding.getRoot();
-
 
 
     }
