@@ -32,7 +32,7 @@
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
-        android:background="@drawable/button_corners"
+        android:background="@drawable/circle_button_corners"
         android:backgroundTint="@color/white"
         android:textAllCaps="false"
         android:textColor="#6C70D5"

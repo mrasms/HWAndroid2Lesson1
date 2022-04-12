@@ -1,16 +1,19 @@
 package com.example.android2lesson1.ui.fragments;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toolbar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentResultListener;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import androidx.navigation.fragment.NavHostFragment;
+import androidx.navigation.ui.NavigationUI;
 
 import com.example.android2lesson1.ItemListener;
 import com.example.android2lesson1.R;
@@ -31,6 +34,9 @@ public class TaskFragment extends Fragment implements ItemListener {
                              Bundle savedInstanceState) {
         binding = FragmentTaskBinding.inflate(getLayoutInflater());
         return binding.getRoot();
+
+
+
     }
 
     @Override
@@ -39,7 +45,23 @@ public class TaskFragment extends Fragment implements ItemListener {
         listener();
         initAdapter();
         setData();
+
     }
+
+    private void listener() {
+        binding.btnApply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Navigation.findNavController(requireView()).navigate(R.id.createTaskFragment);
+            }
+        });
+    }
+
+
+    private void initAdapter() {
+        binding.recycler.setAdapter(taskAdapter);
+    }
+
 
     private void setData() {
         getParentFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
@@ -50,19 +72,6 @@ public class TaskFragment extends Fragment implements ItemListener {
                 String dateFromCreateTask = bundle.getString("date");
                 modelList.add(new TaskModel(titleFromCreateTask, regularFromCreateTask, dateFromCreateTask));
                 taskAdapter.notifyItemInserted(modelList.size() - 1);
-            }
-        });
-    }
-
-    private void initAdapter() {
-        binding.recycler.setAdapter(taskAdapter);
-    }
-
-    private void listener() {
-        binding.btnApply.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(requireView()).navigate(R.id.createTaskFragment);
             }
         });
     }

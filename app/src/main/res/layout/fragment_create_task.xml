@@ -1,42 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/createTaskFragmentLayout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="12dp"
+    android:padding="51dp"
+    android:background="@drawable/rectangle_for_create"
     tools:context=".ui.fragments.CreateTaskFragment">
 
     <EditText
         android:id="@+id/et_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/input_text_here"
+        android:hint="Title of task"
         android:textAlignment="center"
-        android:textSize="40sp" />
+        android:textSize="14sp"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
+    <TextView
         android:id="@+id/tv_date"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/input_text_here"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/oval"
+        android:drawablePadding="13dp"
+        android:paddingVertical="12dp"
+        android:paddingStart="3dp"
+        android:text="dd.mm.yyyy"
         android:textAlignment="center"
-        android:textSize="40sp" />
+        android:textSize="14sp"
+        app:drawableEndCompat="@drawable/ic_calendar"
+        app:layout_constraintLeft_toLeftOf="@id/et_title"
+        app:layout_constraintTop_toBottomOf="@id/et_title" />
 
-    <EditText
+    <TextView
         android:id="@+id/tv_regular"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/input_text_here"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/oval"
+        android:drawableEnd="@drawable/ic_arrow_down"
+        android:drawablePadding="13dp"
+        android:hint="regular"
+        android:padding="12dp"
         android:textAlignment="center"
-        android:textSize="40sp" />
+        android:textSize="14sp"
+        app:layout_constraintRight_toRightOf="@id/et_title"
+        app:layout_constraintTop_toBottomOf="@id/et_title" />
 
     <Button
         android:id="@+id/btn_send_to_task"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:text="@string/apply" />
+        android:background="@drawable/button_corners"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5.5dp"
+        android:text="Принять"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_date" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
