@@ -7,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android2lesson1.R;
 import com.example.android2lesson1.interfaces.ItemListener;
 import com.example.android2lesson1.databinding.ItemBoardBinding;
 import com.example.android2lesson1.models.BoardModel;
@@ -50,7 +49,7 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardViewHol
         }
 
         public void onBind(BoardModel model) {
-            binding.lottieBoard.setAnimation(model.getImage());
+            binding.lottieBoard.setAnimation(model.getLottie());
             binding.tvDescription.setText(model.getDescription());
             binding.btnNext.setText(model.getBtnText());
             binding.btnNext.setOnClickListener(new View.OnClickListener() {
