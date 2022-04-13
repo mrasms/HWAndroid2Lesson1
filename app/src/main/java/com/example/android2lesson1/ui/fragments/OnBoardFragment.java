@@ -105,9 +105,7 @@ public class OnBoardFragment extends Fragment implements ItemListener {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 super.onPageScrolled(position, positionOffset, positionOffsetPixels);
-                /*if (position < list.size() - 1) {
-                    binding.btnNext.setText("Дальше");
-                } else binding.btnNext.setText("Начинаем");*/
+
                 if (binding.pager.getCurrentItem() == position) {
                     for (int i = 0; i <= list.size(); i++) {
                         if (i == position && position == 0) {
@@ -131,9 +129,9 @@ public class OnBoardFragment extends Fragment implements ItemListener {
     }
 
     private ArrayList<BoardModel> getBoardList() {
-        list.add(new BoardModel(R.drawable.watch, "Экономь время", "Дальше"));
-        list.add(new BoardModel(R.drawable.darts, "Достигай целей", "Дальше"));
-        list.add(new BoardModel(R.drawable.earth, "Развивайся", "Начинаем"));
+        list.add(new BoardModel("time.json", "Экономь время", "Дальше"));
+        list.add(new BoardModel("tasks.json", "Достигай целей", "Дальше"));
+        list.add(new BoardModel("improvement.json", "Развивайся", "Начинаем"));
         return list;
     }
 

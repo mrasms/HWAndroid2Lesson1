@@ -1,18 +1,24 @@
 package com.example.android2lesson1.models;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.airbnb.lottie.LottieComposition;
+import com.google.gson.JsonElement;
+
 public class BoardModel {
-    private int image;
+    //private LottieAnimationView animationView;
+   // private int image;
+    private String lottie;
     private String description;
     private String btnText;
 
-    public BoardModel(int image, String description, String btnText) {
-        this.image = image;
+    public BoardModel(String lottie, String description, String btnText) {
+        this.lottie = lottie;
         this.description = description;
         this.btnText = btnText;
     }
 
-    public int getImage() {
-        return image;
+    public String getImage() {
+        return lottie;
     }
 
     public String getDescription() {
