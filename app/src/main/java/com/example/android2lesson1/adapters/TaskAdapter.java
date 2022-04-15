@@ -77,12 +77,7 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskHolder> {
                     listener.onItemClick(taskModel);
                 }
             });
-//            binding.cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    listener.onItemClick(taskModel);
-//                }
-//            });
+
         }
     }
 }
