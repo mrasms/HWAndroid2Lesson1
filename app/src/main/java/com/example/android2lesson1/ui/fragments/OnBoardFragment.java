@@ -22,6 +22,7 @@ import com.example.android2lesson1.R;
 import com.example.android2lesson1.adapters.BoardAdapter;
 import com.example.android2lesson1.databinding.FragmentOnBoardBinding;
 import com.example.android2lesson1.models.BoardModel;
+import com.example.android2lesson1.models.TaskModel;
 
 import java.util.ArrayList;
 
@@ -149,4 +150,6 @@ public class OnBoardFragment extends Fragment implements ItemListener {
             Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
         }else binding.pager.setCurrentItem(binding.pager.getCurrentItem()+1);
     }
+
+
 }

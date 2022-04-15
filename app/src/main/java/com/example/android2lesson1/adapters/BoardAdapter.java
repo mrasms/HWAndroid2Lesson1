@@ -56,7 +56,6 @@ public class BoardAdapter extends RecyclerView.Adapter<BoardAdapter.BoardViewHol
                 @Override
                 public void onClick(View view) {
                     listener.itemClick();
-
                 }
             });
         }

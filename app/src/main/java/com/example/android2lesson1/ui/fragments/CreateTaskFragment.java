@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.DatePicker;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
 import com.example.android2lesson1.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
@@ -72,7 +73,7 @@ public class CreateTaskFragment extends BottomSheetDialogFragment {
             @SuppressLint("SetTextI18n")
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 Calendar newDate = Calendar.getInstance();
-                newDate.set(year, monthOfYear +1, dayOfMonth);
+                newDate.set(year, monthOfYear + 1, dayOfMonth);
                 if (monthOfYear < 10) {
                     int month = monthOfYear + 1;
                     binding.tvDate.setText(dayOfMonth + ".0" + month + "." + year);
@@ -94,6 +95,13 @@ public class CreateTaskFragment extends BottomSheetDialogFragment {
             RadioButton week = (RadioButton) dialog.findViewById(R.id.every_week_btn);
             RadioButton month = (RadioButton) dialog.findViewById(R.id.every_month_btn);
             RadioButton year = (RadioButton) dialog.findViewById(R.id.every_year_btn);
+            TextView cancel = (TextView) dialog.findViewById(R.id.cancel_tv);
+            cancel.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
             day.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

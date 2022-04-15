@@ -1,5 +1,6 @@
 package com.example.android2lesson1.adapters;
 
+import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,36 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android2lesson1.interfaces.ItemListener;
 import com.example.android2lesson1.databinding.TaskHolderBinding;
+import com.example.android2lesson1.interfaces.OnItemListener;
 import com.example.android2lesson1.models.TaskModel;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskHolder> {
-    private ArrayList<TaskModel> modelList;
-    private ItemListener listener;
 
-    public TaskAdapter(ArrayList<TaskModel> modelList, ItemListener listener) {
-        this.modelList = modelList;
+    private List<TaskModel> modelList = new ArrayList<>();
+    private OnItemListener listener;
+
+    public void setListener(OnItemListener listener) {
         this.listener = listener;
     }
+
+    public void setList(List<TaskModel> modelList) {
+        this.modelList = modelList;
+        notifyDataSetChanged();
+    }
+
+//    @SuppressLint("NotifyDataSetChanged")
+//    public void delete(TaskModel model) {
+//        modelList.remove(model);
+//        notifyDataSetChanged();
+//    }
+
+//    public TaskAdapter(ArrayList<TaskModel> modelList, OnItemListener listener) {
+//        this.modelList = modelList;
+//        this.listener = listener;
+//    }
 
     @NonNull
     @Override
@@ -52,12 +71,18 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskHolder> {
             binding.tvCardTitle.setText(taskModel.getTitle());
             binding.tvCardRegular.setText(taskModel.getRegular());
             binding.tvCardDate.setText(taskModel.getDate());
-            binding.cardView.setOnClickListener(new View.OnClickListener() {
+            itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.itemClick();
+                    listener.onItemClick(taskModel);
                 }
             });
+//            binding.cardView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//                    listener.onItemClick(taskModel);
+//                }
+//            });
         }
     }
 }

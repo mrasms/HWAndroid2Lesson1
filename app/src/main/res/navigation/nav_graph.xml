@@ -18,7 +18,11 @@
         android:id="@+id/taskFragment"
         android:name="com.example.android2lesson1.ui.fragments.TaskFragment"
         android:label="fragment_task"
-        tools:layout="@layout/fragment_task" />
+        tools:layout="@layout/fragment_task" >
+        <action
+            android:id="@+id/action_taskFragment_to_onBoardFragment"
+            app:destination="@id/onBoardFragment" />
+    </fragment>
     <fragment
         android:id="@+id/onBoardFragment"
         android:name="com.example.android2lesson1.ui.fragments.OnBoardFragment"
