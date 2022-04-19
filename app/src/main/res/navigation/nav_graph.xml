@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/onBoardFragment">
+    app:startDestination="@id/registrationFragment">
 
     <dialog
         android:id="@+id/createTaskFragment"
@@ -18,18 +18,42 @@
         android:id="@+id/taskFragment"
         android:name="com.example.android2lesson1.ui.fragments.TaskFragment"
         android:label="fragment_task"
-        tools:layout="@layout/fragment_task" >
-        <action
-            android:id="@+id/action_taskFragment_to_onBoardFragment"
-            app:destination="@id/onBoardFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_task"/>
     <fragment
         android:id="@+id/onBoardFragment"
         android:name="com.example.android2lesson1.ui.fragments.OnBoardFragment"
         android:label="fragment_on_board"
         tools:layout="@layout/fragment_on_board">
         <action
-            android:id="@+id/action_onBoardFragment_to_createTaskFragment"
+            android:id="@+id/action_onBoardFragment_to_registrationFragment"
+            app:destination="@id/registrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/finishRegistrationFragment"
+        android:name="com.example.android2lesson1.ui.fragments.authentification.FinishRegistrationFragment"
+        android:label="fragment_finish_registration"
+        tools:layout="@layout/fragment_finish_registration">
+
+        <action
+            android:id="@+id/action_finishRegistrationFragment_to_createTaskFragment"
             app:destination="@id/createTaskFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/applyDataFragment"
+        android:name="com.example.android2lesson1.ui.fragments.authentification.ApplyDataFragment"
+        android:label="fragment_apply_data"
+        tools:layout="@layout/fragment_apply_data">
+        <action
+            android:id="@+id/action_applyDataFragment_to_finishRegistrationFragment2"
+            app:destination="@id/finishRegistrationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.android2lesson1.ui.fragments.authentification.RegistrationFragment"
+        android:label="fragment_registration"
+        tools:layout="@layout/fragment_registration">
+        <action
+            android:id="@+id/action_registrationFragment_to_applyDataFragment2"
+            app:destination="@id/applyDataFragment" />
     </fragment>
 </navigation>

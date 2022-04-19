@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_reg"
+    tools:context=".ui.fragments.authentification.ApplyDataFragment">
+
+
+    <ImageView
+        android:id="@+id/im_sec_wave"
+        android:layout_width="428dp"
+        android:layout_height="242dp"
+        android:src="@drawable/sec_wave"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="-35dp" />
+
+    <ImageView
+        android:id="@+id/im_flame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/flame"
+        app:layout_constraintBottom_toBottomOf="@id/im_sec_wave"
+        app:layout_constraintEnd_toStartOf="@id/tv_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="LifeTrack"
+        android:textColor="@color/white"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="@id/im_flame"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/im_flame"
+        app:layout_constraintTop_toTopOf="@id/im_flame" />
+
+    <ImageView
+        android:id="@+id/im_profile_pic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/profile_pic"
+        app:layout_constraintBottom_toTopOf="@id/btn_apply"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/im_sec_wave" />
+
+    <EditText
+        android:id="@+id/et_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/oval"
+        android:hint="input number here"
+        android:paddingHorizontal="12dp"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/im_profile_pic" />
+
+    <EditText
+        android:id="@+id/et_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:hint="input code here"
+        android:paddingHorizontal="12dp"
+        android:textColorHint="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintTop_toBottomOf="@id/et_number" />
+
+    <Button
+        android:id="@+id/btn_apply"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/button_corners"
+        android:text="Отправить номер"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/btn_code"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:background="@drawable/button_corners"
+        android:text="Отправить код"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@id/btn_apply" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

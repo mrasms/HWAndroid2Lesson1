@@ -1,6 +1,5 @@
 package com.example.android2lesson1.adapters;
 
-import android.annotation.SuppressLint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,7 +7,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.android2lesson1.interfaces.ItemListener;
 import com.example.android2lesson1.databinding.TaskHolderBinding;
 import com.example.android2lesson1.interfaces.OnItemListener;
 import com.example.android2lesson1.models.TaskModel;
@@ -29,17 +27,6 @@ public class TaskAdapter extends RecyclerView.Adapter<TaskAdapter.TaskHolder> {
         this.modelList = modelList;
         notifyDataSetChanged();
     }
-
-//    @SuppressLint("NotifyDataSetChanged")
-//    public void delete(TaskModel model) {
-//        modelList.remove(model);
-//        notifyDataSetChanged();
-//    }
-
-//    public TaskAdapter(ArrayList<TaskModel> modelList, OnItemListener listener) {
-//        this.modelList = modelList;
-//        this.listener = listener;
-//    }
 
     @NonNull
     @Override

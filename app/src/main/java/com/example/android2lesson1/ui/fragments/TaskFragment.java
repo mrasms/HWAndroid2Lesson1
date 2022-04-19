@@ -1,7 +1,5 @@
 package com.example.android2lesson1.ui.fragments;
 
-import static com.example.android2lesson1.App.getApp;
-
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -63,12 +61,7 @@ public class TaskFragment extends Fragment {
 
     private void initAdapter() {
         binding.recycler.setAdapter(taskAdapter);
-        App.getApp().getDataBase().taskDao().getListData().observe(getViewLifecycleOwner(), new Observer<List<TaskModel>>() {
-            @Override
-            public void onChanged(List<TaskModel> taskModels) {
-                taskAdapter.setList(taskModels);
-            }
-        });
+        App.getApp().getDataBase().taskDao().getListData().observe(getViewLifecycleOwner(), taskModels -> taskAdapter.setList(taskModels));
     }
 
     private void setData() {
@@ -82,8 +75,8 @@ public class TaskFragment extends Fragment {
                 App.getApp().getDataBase().taskDao().insert(taskModel);
 
 
-            }
-        });
+                    }
+                });
     }
 
     public void onItemClick() {
@@ -99,11 +92,12 @@ public class TaskFragment extends Fragment {
                 builder.setMessage(setMessage);
                 builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
-                        getApp().getDataBase().taskDao().delete(model);
+                        App.getApp().getDataBase().taskDao().delete(model);
                     }
-                })
-                        .setNegativeButton(android.R.string.no, null)
-                        .setIcon(android.R.drawable.ic_dialog_alert).show();
+                });
+                builder.setNegativeButton(android.R.string.no, null);
+                builder.setIcon(android.R.drawable.ic_dialog_alert);
+                builder.show();
             }
         });
 
