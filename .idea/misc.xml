@@ -7,6 +7,8 @@
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable-v24/corners.xml" value="0.126" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable-v24/ic_calendar.xml" value="0.189" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable-v24/oval.xml" value="0.189" />
+        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable/back.xml" value="0.1375" />
+        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable/back1.xml" value="0.1375" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable/button_corners.xml" value="0.122" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable/default_dot.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable/ic_arrow_down.xml" value="0.1" />
@@ -14,12 +16,12 @@
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/drawable/waves.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/dialog.xml" value="0.3333333333333333" />
-        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_apply_data.xml" value="0.18072916666666666" />
+        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_apply_data.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_create_task.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_dialog.xml" value="0.152317880794702" />
-        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_finish_registration.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_finish_registration.xml" value="0.22" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_on_board.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_registration.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_registration.xml" value="0.12" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/fragment_task.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/item_board.xml" value="0.1" />
         <entry key="..\:/Users/Admin/Downloads/Android2Lesson1/app/src/main/res/layout/task_holder.xml" value="0.3333333333333333" />

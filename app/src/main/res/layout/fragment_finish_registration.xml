@@ -4,9 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/background_reg"
+    android:layout_centerInParent="true"
     tools:context=".ui.fragments.authentification.FinishRegistrationFragment">
 
+
+    <ImageView
+        android:id="@+id/im_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/back_pic"
+        android:scaleType="centerCrop"/>
 
     <ImageView
         android:id="@+id/im_third_wave"
@@ -62,7 +69,7 @@
         android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/im_third_wave"
+        app:layout_constraintTop_toBottomOf="@id/tv_welcome"
         app:layout_constraintBottom_toBottomOf="parent"/>
     <Button
         android:id="@+id/btn_begin"

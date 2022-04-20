@@ -4,13 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_reg"
     tools:context=".ui.fragments.authentification.RegistrationFragment">
 
-
+    <ImageView
+        android:id="@+id/im_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/back_pic"
+        android:scaleType="centerCrop"/>
     <ImageView
         android:id="@+id/im_wave"
-        android:layout_width="1002dp"
+        android:layout_width="0dp"
         android:layout_height="404dp"
         android:src="@drawable/wave"
         app:layout_constraintEnd_toEndOf="parent"

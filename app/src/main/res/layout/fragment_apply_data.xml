@@ -4,9 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_reg"
     tools:context=".ui.fragments.authentification.ApplyDataFragment">
 
+    <ImageView
+        android:id="@+id/im_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/back_pic" />
 
     <ImageView
         android:id="@+id/im_sec_wave"
@@ -47,10 +52,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/profile_pic"
-        app:layout_constraintBottom_toTopOf="@id/btn_apply"
+        app:layout_constraintBottom_toTopOf="@id/btn_code"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/im_sec_wave" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     <EditText
         android:id="@+id/et_number"
@@ -60,6 +65,7 @@
         android:background="@drawable/oval"
         android:hint="input number here"
         android:paddingHorizontal="12dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/im_profile_pic" />
@@ -69,8 +75,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:background="@drawable/oval"
         android:hint="input code here"
         android:paddingHorizontal="12dp"
+        android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/et_number" />

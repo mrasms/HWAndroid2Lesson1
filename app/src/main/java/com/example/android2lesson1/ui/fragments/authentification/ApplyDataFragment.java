@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.android2lesson1.R;
 import com.example.android2lesson1.databinding.FragmentApplyDataBinding;
@@ -34,9 +35,7 @@ public class ApplyDataFragment extends Fragment {
     private FragmentApplyDataBinding binding;
     private static final String TAG = "PhoneAuthActivity";
 
-    // [START declare_auth]
     private FirebaseAuth mAuth;
-    // [END declare_auth]
 
     private String mVerificationId;
     private PhoneAuthProvider.ForceResendingToken mResendToken;
@@ -54,13 +53,9 @@ public class ApplyDataFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         initClickers();
         super.onCreate(savedInstanceState);
-        // [START initialize_auth]
-        // Initialize Firebase Auth
-        mAuth = FirebaseAuth.getInstance();
-        // [END initialize_auth]
 
-        // Initialize phone auth callbacks
-        // [START phone_auth_callbacks]
+        mAuth = FirebaseAuth.getInstance();
+
         mCallbacks = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
 
             @Override
@@ -72,8 +67,8 @@ public class ApplyDataFragment extends Fragment {
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
                 Log.d(TAG, "onVerificationCompleted:" + credential);
-
                 signInWithPhoneAuthCredential(credential);
+
             }
 
             @Override
@@ -127,7 +122,7 @@ public class ApplyDataFragment extends Fragment {
 
     private void sendCode() {
         String code = binding.etCode.getText().toString().trim();
-        verifyPhoneNumberWithCode(mVerificationId,code);
+        verifyPhoneNumberWithCode(mVerificationId, code);
     }
 
     private void sendData() {
@@ -191,6 +186,9 @@ public class ApplyDataFragment extends Fragment {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
+                            Navigation.findNavController(requireView()).navigate(R.id.finishRegistrationFragment);
+
+                            //Toast.makeText(requireContext(), "zbs", Toast.LENGTH_SHORT).show();
 
                             FirebaseUser user = task.getResult().getUser();
                             // Update UI
