@@ -89,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="@drawable/button_corners"
-        android:text="Отправить номер"
+        android:text="@string/send_number"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="24sp"

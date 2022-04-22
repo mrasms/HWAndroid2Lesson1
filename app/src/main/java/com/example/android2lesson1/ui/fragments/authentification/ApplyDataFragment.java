@@ -34,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplyDataFragment extends Fragment {
     private FragmentApplyDataBinding binding;
     private static final String TAG = "PhoneAuthActivity";
-
+    private static final String MESSAGE = "Вы не ввели код";
     private FirebaseAuth mAuth;
 
     private String mVerificationId;
@@ -66,7 +66,7 @@ public class ApplyDataFragment extends Fragment {
                 // 2 - Auto-retrieval. On some devices Google Play services can automatically
                 //     detect the incoming verification SMS and perform verification without
                 //     user action.
-                Log.d(TAG, "onVerificationCompleted:" + credential);
+                //Log.d(TAG, "onVerificationCompleted:" + credential);
                 signInWithPhoneAuthCredential(credential);
 
             }
@@ -92,7 +92,7 @@ public class ApplyDataFragment extends Fragment {
                 // The SMS verification code has been sent to the provided phone number, we
                 // now need to ask the user to enter the code and then construct a credential
                 // by combining the code with a verification ID.
-                Log.d(TAG, "onCodeSent:" + verificationId);
+                // Log.d(TAG, "onCodeSent:" + verificationId);
 
                 // Save verification ID and resending token so we can use them later
                 mVerificationId = verificationId;
@@ -107,21 +107,23 @@ public class ApplyDataFragment extends Fragment {
         binding.btnApply.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                sendData();
-
-                //Navigation.findNavController(requireView()).navigate(R.id.finishRegistrationFragment);
+                if (binding.btnApply.getText().toString().equals("Отправить номер")) {
+                    sendData();
+                } else if (binding.btnApply.getText().toString().equals("Отправить код")) {
+                    sendCode();
+                }
             }
         });
-        binding.btnCode.setOnClickListener(new View.OnClickListener() {
+        /*binding.btnCode.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 sendCode();
             }
-        });
+        });*/
     }
 
     private void sendCode() {
-        String code = binding.etCode.getText().toString().trim();
+        String code = binding.etNumber.getText().toString().trim();
         verifyPhoneNumberWithCode(mVerificationId, code);
     }
 
@@ -151,33 +153,30 @@ public class ApplyDataFragment extends Fragment {
                         .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
                         .build();
         PhoneAuthProvider.verifyPhoneNumber(options);
+        if (phoneNumber.equals("")) {
+            Toast.makeText(requireContext(), "Введите номер телефона", Toast.LENGTH_SHORT).show();
+
+        } else {
+            binding.btnApply.setText("Отправить код");
+            binding.etNumber.setHint("Введите код");
+            binding.etNumber.setText("");
+        }
         // [END start_phone_auth]
     }
 
     private void verifyPhoneNumberWithCode(String verificationId, String code) {
         // [START verify_with_code]
-        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
-        // [END verify_with_code]
-        signInWithPhoneAuthCredential(credential);
+        if (code.equals("")) {
+            Toast.makeText(requireContext(), MESSAGE, Toast.LENGTH_SHORT).show();
+        } else {
+            PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verificationId, code);
+            signInWithPhoneAuthCredential(credential);
+        }
+
 
     }
 
-    // [START resend_verification]
-    private void resendVerificationCode(String phoneNumber,
-                                        PhoneAuthProvider.ForceResendingToken token) {
-        PhoneAuthOptions options =
-                PhoneAuthOptions.newBuilder(mAuth)
-                        .setPhoneNumber(phoneNumber)       // Phone number to verify
-                        .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                        .setActivity(requireActivity())                 // Activity (for callback binding)
-                        .setCallbacks(mCallbacks)          // OnVerificationStateChangedCallbacks
-                        .setForceResendingToken(token)     // ForceResendingToken from callbacks
-                        .build();
-        PhoneAuthProvider.verifyPhoneNumber(options);
-    }
-    // [END resend_verification]
 
-    // [START sign_in_with_phone]
     private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(requireActivity(), new OnCompleteListener<AuthResult>() {
@@ -186,11 +185,12 @@ public class ApplyDataFragment extends Fragment {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
-                            Navigation.findNavController(requireView()).navigate(R.id.finishRegistrationFragment);
 
                             //Toast.makeText(requireContext(), "zbs", Toast.LENGTH_SHORT).show();
 
                             FirebaseUser user = task.getResult().getUser();
+                            Navigation.findNavController(requireView()).navigate(R.id.finishRegistrationFragment);
+
                             // Update UI
                         } else {
                             // Sign in failed, display a message and update the UI

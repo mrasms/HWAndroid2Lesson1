@@ -5,4 +5,5 @@
     <string name="apply">apply</string>
     <string name="empty">Empty</string>
     <string name="input_text_here">input text here</string>
+    <string name="send_number">Отправить номер</string>
 </resources>

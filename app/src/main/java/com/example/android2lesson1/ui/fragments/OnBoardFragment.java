@@ -147,7 +147,7 @@ public class OnBoardFragment extends Fragment implements ItemListener {
         if (binding.pager.getCurrentItem() ==list.size()-1) {
             preferences = requireActivity().getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE);
             preferences.edit().putBoolean(IS_SHOW_KEY, true).apply();
-            Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
+            Navigation.findNavController(requireView()).navigate(R.id.registrationFragment);
         }else binding.pager.setCurrentItem(binding.pager.getCurrentItem()+1);
     }
 

@@ -1,5 +1,10 @@
 package com.example.android2lesson1.ui.fragments.authentification;
 
+import static com.example.android2lesson1.keys.Keys.FILE_NAME;
+import static com.example.android2lesson1.keys.Keys.IS_SHOW_KEY;
+
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -14,10 +19,12 @@ import android.view.ViewGroup;
 import com.example.android2lesson1.R;
 import com.example.android2lesson1.databinding.FragmentFinishRegistrationBinding;
 import com.example.android2lesson1.databinding.FragmentRegistrationBinding;
+import com.example.android2lesson1.keys.Keys;
 
 
 public class RegistrationFragment extends Fragment {
-private FragmentRegistrationBinding binding;
+    private FragmentRegistrationBinding binding;
+    private SharedPreferences preferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -29,6 +36,7 @@ private FragmentRegistrationBinding binding;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        checkRegistration();
         initClickers();
     }
 
@@ -39,5 +47,15 @@ private FragmentRegistrationBinding binding;
                 Navigation.findNavController(requireView()).navigate(R.id.applyDataFragment);
             }
         });
+    }
+    private void checkRegistration() {
+        preferences = requireActivity().getSharedPreferences(Keys.REG_NAME, Context.MODE_PRIVATE);
+
+        if (preferences != null) {
+            boolean userRegistered = preferences.getBoolean(Keys.USER_REGISTERED, false);
+            if (userRegistered) {
+                Navigation.findNavController(requireView()).navigate(R.id.taskFragment);
+            }
+        }
     }
 }

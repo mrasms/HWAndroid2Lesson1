@@ -10,7 +10,10 @@ public class Keys {
     public static final String IS_SHOW_KEY = "isShow";
     public static final String ON_ITEM_CLICK = "onItemClick";
 
-    // key for
+    // key for check of user registration
+    public static final String USER_REGISTERED = "userRegistered";
+    public static final String REG_NAME = "reg_name_file";
+
 
 
     // key for
