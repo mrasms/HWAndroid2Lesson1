@@ -52,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/profile_pic"
-        app:layout_constraintBottom_toTopOf="@id/btn_code"
+        app:layout_constraintBottom_toTopOf="@id/btn_apply"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title" />
@@ -63,25 +63,14 @@
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
         android:background="@drawable/oval"
-        android:hint="input number here"
+        android:hint="Введите номер"
         android:paddingHorizontal="12dp"
         android:textColor="@color/white"
         android:textColorHint="@color/white"
         android:textSize="24sp"
         app:layout_constraintTop_toBottomOf="@id/im_profile_pic" />
 
-    <EditText
-        android:id="@+id/et_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:background="@drawable/oval"
-        android:hint="input code here"
-        android:paddingHorizontal="12dp"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintTop_toBottomOf="@id/et_number" />
+
 
     <Button
         android:id="@+id/btn_apply"
@@ -95,17 +84,7 @@
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
-        android:id="@+id/btn_code"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="12dp"
-        android:background="@drawable/button_corners"
-        android:text="Отправить код"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@id/btn_apply" />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
